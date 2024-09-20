@@ -1,9 +1,12 @@
 #!/bin/sh
-#SBATCH -p sapphire
-#SBATCH -t 0-60:00
-#SBATCH --mem 420000
-#SBATCH -n 20
-#SBATCH -c 1
+#SBATCH --job-name=multithread	# create a short name for your job
+#SBATCH --nodes=1	# Number of nodes for the cores
+#SBATCH --ntasks=1	# total number of tasks across all nodes
+#SBATCH --cpus-per-task=N	# cpu-cores per task
+#SBATCH --mem-per-cpu=64G	# memory per cpu-core
+#SBATCH -t 0-10:00	# Runtime in D-HH:MM format
+#SBATCH -p sapphire	# Partition to submit to
+#SBATCH --mem=20000	# Memory pool for all CPUs
 #SBATCH -o /n/holyscratch01/davis_lab/Everyone/VarKode_expansion/datasets/dog_breeds/extra/output/2_dog_crossval.%A.out
 #SBATCH -e /n/holyscratch01/davis_lab/Everyone/VarKode_expansion/datasets/dog_breeds/extra/output/2_dog_crossval.%A.err      # File to which standard err will be written
 
